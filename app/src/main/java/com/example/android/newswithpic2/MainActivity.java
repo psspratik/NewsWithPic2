@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     //image = "https://us.123rf.com/450wm/uasumy/uasumy1504/uasumy150400022/38624301-green-letter-g-and-leaf-eco-technology-logo-mockup-ecology-poster.jpg?ver=6";
                     //}
                     String title = firstObject.getString("title");
+                    String articleurl = threadObject.getString("url");
                     //if(image==null)
                     //String image = "https://us.123rf.com/450wm/uasumy/uasumy1504/uasumy150400022/38624301-green-letter-g-and-leaf-eco-technology-logo-mockup-ecology-poster.jpg?ver=6";
                     // tmp hash map for single contact
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     //contact.put("name", title);
 
                     // adding contact to contact list
-                    arrayList.add(new NewsElements(title,image));
+                    arrayList.add(new NewsElements(title,image,articleurl));
                 }
             }catch (JSONException e){
                 e.printStackTrace();

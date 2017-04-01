@@ -8,25 +8,34 @@ public class NewsElements {
 
     private String headlines;
     private String image;
+    private String articleurl;
 
-    public NewsElements(String headlines, String image)
+    public NewsElements(String headlines, String image, String articleurl)
     {
         this.headlines = headlines;
         this.image = image;
+        this.articleurl = articleurl;
     }
 
     public String getImage()
     {
         if(image.isEmpty())
-            return "https://us.123rf.com/450wm/uasumy/uasumy1504/uasumy150400022/38624301-green-letter-g-and-leaf-eco-technology-logo-mockup-ecology-poster.jpg?ver=6";
+            return "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTwgXsYnKFUauC25YvnwFbRo86qBy6JIE_kag7skgfBRz_x85ia";
         else
             return image;
+    }
+
+    public String getArticleurl()
+    {
+        return articleurl;
     }
 
     public String getHeadlines()
     {
         return headlines;
     }
+
+    public void setArticleurl(String articleurl ){this.articleurl = articleurl;}
 
     public void setImage(String image)
     {

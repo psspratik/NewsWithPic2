@@ -5,6 +5,8 @@ package com.example.android.newswithpic2;
  */
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +24,13 @@ import java.util.List;
  * Created by Pratik saxsena on 26-03-2017.
  */
 
-public class CustomListAdapter extends ArrayAdapter<NewsElements> {
+public class CustomListAdapter extends ArrayAdapter<NewsElements> implements View.OnClickListener {
 
 
     ArrayList<NewsElements> newselements;
     int resource;
     Context context;
-
+    String articleurl;
 
     public CustomListAdapter(Context context, int resource, ArrayList<NewsElements> newselements)
     {
@@ -52,6 +54,16 @@ public class CustomListAdapter extends ArrayAdapter<NewsElements> {
         Picasso.with(context).load(newselement.getImage()).into(imageView);
         TextView textView = (TextView) convertView.findViewById(R.id.name);
         textView.setText(newselement.getHeadlines());
+        articleurl = newselement.getArticleurl();
+        convertView.setOnClickListener(this);
+
         return convertView;
+    }
+
+    public void onClick(View view){
+        Intent browserintent = new Intent("android.intent.action.VIEW", Uri.parse(articleurl));
+        browserintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(browserintent);
+
     }
 }
